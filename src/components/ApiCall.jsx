@@ -11,6 +11,11 @@ function ApiCall() {
     setPosts(res.data);
   };
 
+  const addPost = async () => {
+    await axios.post(BASE_URL, { title });
+    fetchPosts();
+  };
+
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -26,7 +31,7 @@ function ApiCall() {
         }}
       />
 
-      {/* <button onClick={addPost}>Add</button> */}
+      <button onClick={addPost}>Add</button>
       {posts.map((post) => {
         console.log(post);
         return (
